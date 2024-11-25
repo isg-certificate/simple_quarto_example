@@ -1,0 +1,76 @@
+---
+title: "My final project"
+author: Bob Loblaw
+date: 2024-12-06
+bibliography: quarto_test.bibtex
+format: 
+  html:
+     df-print: paged
+     embed-resources: true
+---
+
+## Introduction
+
+We can cite papers by attributing things to publications directly like @felsenstein1985phylogenies or making declarative statements supported by a publication [@felsenstein1981evolutionary], or more than one publication [@felsenstein1981evolutionary; @felsenstein1985confidence]. These citations are in **bibtex** format in an accompanying file, `citations.bibtex`. The formatted citations were copied and pasted from the `cite` button in google scholar for each reference. 
+
+It's easy to include images. 
+
+![A painting of a mummichog, *Fundulus heteroclitus*](mummichog.jpg){fig-alt="A painting of a mummichog." #fig-mummichog}
+
+We can reference @fig-mummichog. 
+
+## Methods
+
+If you need to explain some code without running it, you can show it like this, denoting the language for syntax highlighting. This is bash code. 
+
+```bash
+head myfile.txt | cut -f 3 | sort | uniq -c
+```
+
+## Results
+
+### Results subsection 1
+
+I'm going to make a plot of some simulated data.
+
+```{r}
+#| label: fig-rando-plot
+#| fig-cap: "Totally bogus data."
+x <- rnorm(500, mean=5, sd=2)
+y <- x + rnorm(500)
+plot(x, y)
+```
+
+## Results subsection 2
+
+Let's print this table.
+
+```{r}
+#| label: tbl-rando
+#| tbl-cap: Random correlated data
+df <- data.frame(x=x,y=y)
+df 
+```
+
+## Results subsection 3
+
+We can also hide the code and just print the results. 
+
+```{r}
+#| label: fig-rando-x-hist
+#| fig-cap: "Histogram of random x."
+#| echo: false
+hist(x)
+```
+
+
+## Discussion
+
+You can see from @fig-rando-plot the data are correlated. You can see from @tbl-rando that rendering the whole table is superfluous. You should not be able to see the histogram code for @fig-rando-x-hist in the rendered document. 
+
+## Conclusions
+
+## References
+
+::: {#refs}
+:::
